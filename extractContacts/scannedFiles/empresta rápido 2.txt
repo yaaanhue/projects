@@ -1,0 +1,41 @@
+Simulação de Empréstimo Pagamento Diário
+Pagamento Seg. à Sáb
+10%
+15%
+Valor do Empréstimo Pagamento 11 Dias
+R$ 500,00
+R$ 1.000,00
+R$ 1.500,00
+R$ 2.000,00
+R$ 2.500,00
+R$ 3.000,00
+Pagamento 15 Dias
+15X de R$ 39,00
+15X de R$ 77,00
+15X de R$ 115,00
+11X de R$ 200,00 15X de R$ 154,00
+11X de R$ 250,0015X de R$ 192,00
+11X de RS 300,00 15X de R$ 230,00
+11X de R$ 50,00
+11X de RS 100,00
+11X de RS 150,00
+Simulação de Empréstimo Pagamento Diário
+Pagamento Seg. à Sáb.
+20%
+20%
+Valor do Empréstimo Pagamento 20 Dias Pagamento 24
+24X de R$ 25,00
+24X de R$ 50,00
+24X de R$ 75,00
+R$ 500,00
+R$ 1.000,00
+R$ 1.500,00
+R$ 2.000,00
+R$ 2.500,00
+R$ 3.000,00
+20X de RS 30,00
+20X de R$ 60,00
+20X de R$ 90,00
+20X de R$ 120,00 24X de R$ 100,00
+20X de R$ 150,00 24X de R$ 125,00
+20X de R$ 180,00 | 24x de R$ 150,00

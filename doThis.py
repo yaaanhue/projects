@@ -1,0 +1,1 @@
+#loop infinito que é possivel ser parado quando altera um valor em um arquivo de texto
