@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
-import bs4, time, pprint
+import bs4, pprint
 
 #directory to find chrome webdriver
 chrome_driver = r'C:\Users\Yan\Desktop\git\projects\scrappers\insta_scrapper\chromedriver_win32\chromedriver.exe'
@@ -13,8 +13,8 @@ chrome_options.add_argument('--window-size-1920x1080')
 
 driver = webdriver.Chrome(options=chrome_options, executable_path=chrome_driver)
 
-linkPub = 'https://www.instagram.com/p/By2hKC9gNVr/'
-
+linkPub = input('insira o link da publicacao \n')
+#linkPub = 'https://www.instagram.com/p/By2hKC9gNVr/'
 
 driver.get(linkPub)
 

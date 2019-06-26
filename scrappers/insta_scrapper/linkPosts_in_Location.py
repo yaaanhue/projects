@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import bs4, time, pprint
 
 #directory to find chrome webdriver
-chrome_driver = r'C:\Users\Yan\Desktop\git\scrappers\insta_scrapper\chromedriver_win32\chromedriver'
+chrome_driver = r'C:\Users\Yan\Desktop\git\projects\scrappers\insta_scrapper\chromedriver_win32\chromedriver'
 
 #instance a chrome headless
 chrome_options = Options()
@@ -13,7 +13,7 @@ chrome_options.add_argument('--window-size-1920x1080')
 
 driver = webdriver.Chrome(options=chrome_options, executable_path=chrome_driver)
 
-url = input('Insira a url da localizacao que deseja pegar os links  ')
+url = input('Insira a url da localizacao\n')
 #url = 'https://www.instagram.com/explore/locations/234636166/uniao-da-vitoria/'
 
 driver.get(url)
@@ -25,13 +25,12 @@ places.setdefault('uniao-da-vitoria',{})
 places['uniao-da-vitoria'].setdefault('url-Location', url)
 places['uniao-da-vitoria'].setdefault('latitude',htmlPage.find('meta',{'property':'place:location:latitude'}).get('content'))
 places['uniao-da-vitoria'].setdefault('longitude',htmlPage.find('meta',{'property':'place:location:longitude'}).get('content'))
-
-linksFound = []
+places['uniao-da-vitoria'].setdefault('posts', [])
 
 links1 = htmlPage.find_all('a')
 for l in range(len(links1)):
     if links1[l].get('href').startswith('/p/'):
-        linksFound.append('https://www.instagram.com' + str(links1[l].get('href')))
+        places['uniao-da-vitoria']['posts'].append('https://www.instagram.com' + str(links1[l].get('href')))
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 time.sleep(3)
@@ -45,7 +44,7 @@ htmlPage = bs4.BeautifulSoup(driver.page_source, features='html.parser')
 links1 = htmlPage.find_all('a')
 for l in range(len(links1)):
     if links1[l].get('href').startswith('/p/'):
-        linksFound.append('https://www.instagram.com' + str(links1[l].get('href')))
+        places['uniao-da-vitoria']['posts'].append('https://www.instagram.com' + str(links1[l].get('href')))
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 time.sleep(3)
@@ -59,7 +58,7 @@ htmlPage = bs4.BeautifulSoup(driver.page_source, features='html.parser')
 links1 = htmlPage.find_all('a')
 for l in range(len(links1)):
     if links1[l].get('href').startswith('/p/'):
-        linksFound.append('https://www.instagram.com' + str(links1[l].get('href')))
+        places['uniao-da-vitoria']['posts'].append('https://www.instagram.com' + str(links1[l].get('href')))
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 time.sleep(3)
@@ -73,7 +72,7 @@ htmlPage = bs4.BeautifulSoup(driver.page_source, features='html.parser')
 links1 = htmlPage.find_all('a')
 for l in range(len(links1)):
     if links1[l].get('href').startswith('/p/'):
-        linksFound.append('https://www.instagram.com' + str(links1[l].get('href')))
+        places['uniao-da-vitoria']['posts'].append('https://www.instagram.com' + str(links1[l].get('href')))
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 time.sleep(3)
@@ -87,13 +86,12 @@ htmlPage = bs4.BeautifulSoup(driver.page_source, features='html.parser')
 links1 = htmlPage.find_all('a')
 for l in range(len(links1)):
     if links1[l].get('href').startswith('/p/'):
-        linksFound.append('https://www.instagram.com' + str(links1[l].get('href')))
+        places['uniao-da-vitoria']['posts'].append('https://www.instagram.com' + str(links1[l].get('href')))
 
 
-print(len(linksFound))
-linkProfiles = list(set(linksFound))
-print(len(linkProfiles))
-pprint.pprint(linkProfiles)
+places['uniao-da-vitoria']['posts'] = list(set(places['uniao-da-vitoria']['posts']))
+
+pprint.pprint(places)
 
 
 
